@@ -4,8 +4,14 @@ import { TodoList } from './TodoList';
 import { AddTodoForm } from './AddTodoForm';
 
 const initialTodos: Array<Todo> = [
-  {text: "walk the dog", isComplete: true},
-  {text: "write app", isComplete: false}
+  {text: "make react app with typescript", isComplete: true},
+  {text: "deploy on heroku", isComplete: true},
+  {text: "send to Lisa!!!!!", isComplete: true},
+  {text: "add delete todo", isComplete: false},
+  {text: "add users for a house/group", isComplete: false},
+  {text: "add drag todo/assign to other users",isComplete:false},
+  {text: "add redux", isComplete:false},
+  {text: "add text message reminder", isComplete:false}
 ];
 
 const App: React.FC = () => {
