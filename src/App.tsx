@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Routes from "./Routes";
+import styled from 'styled-components'
 
-import { TodoList } from './TodoList';
-import { AddTodoForm } from './AddTodoForm';
+// import { TodoList } from './TodoList';
+// import { AddTodoForm } from './AddTodoForm';
+// import Login from './containers/Login';
 
 const initialTodos: Array<Todo> = [
   {text: "make react app with typescript", isComplete: true},
@@ -11,7 +18,8 @@ const initialTodos: Array<Todo> = [
   {text: "add users for a house/group", isComplete: false},
   {text: "add drag todo/assign to other users",isComplete:false},
   {text: "add redux", isComplete:false},
-  {text: "add text message reminder", isComplete:false}
+  {text: "add text message reminder", isComplete:false},
+  {text: "add styled components", isComplete:false}
 ];
 
 const App: React.FC = () => {
@@ -36,14 +44,19 @@ const App: React.FC = () => {
       setTodos([...todos, {text: newTodo, isComplete: false}]);
   };
 
+  const deleteTodo: DeleteTodo = selectedTodo => {
+    const newTodos = todos.filter(todo => todo !== selectedTodo);
+    setTodos(newTodos);
+  };
+
   return (
-    <>
-      <TodoList 
-        todos={todos}
-        toggleTodo={toggleTodo}
-      />
-      <AddTodoForm addTodo={addTodo}></AddTodoForm>
-    </>
+    <div className="App container">
+      <Nav pullRight>
+        <NavItem href="/signup">Signup</NavItem>
+        <NavItem href="/login">Login</NavItem>
+      </Nav>
+      <Routes />
+    </div>
   );
 };
 
